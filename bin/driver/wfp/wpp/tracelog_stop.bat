@@ -1,0 +1,1 @@
+tracelog.exe -stop netfilter2

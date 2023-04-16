@@ -1,0 +1,54 @@
+; -- netfilter2.inf --
+;
+; netfilter2 INF file
+;
+; Copyright (C) 2016 
+;
+
+[Version]
+    Signature   = "$Windows NT$"
+    Class       = WFPCALLOUTS
+    ClassGuid   = {57465043-616C-6C6F-7574-5F636C617373}
+    Provider    = %ProviderString%
+    CatalogFile = netfilter2.cat
+    DriverVer   = 02/27/2016,1.0.0.1
+	
+[SourceDisksNames]
+   1 = %CompanyDisk%,,,""
+
+[SourceDisksFiles]
+   netfilter2.sys = 1,,
+
+[DestinationDirs]
+    DefaultDestDir      = 12                              ; %WinDir%\System32\Drivers
+    netfilter2.DriverFiles = 12                              ; %WinDir%\System32\Drivers
+
+[DefaultInstall]
+    OptionDesc = %CompanyServiceDesc%
+    CopyFiles  = netfilter2.DriverFiles
+
+[DefaultInstall.Services]
+    AddService = %CompanyServiceName%,,netfilter2.Service
+
+[DefaultUninstall]
+    DelFiles = netfilter2.DriverFiles
+
+[DefaultUninstall.Services]
+    DelService = %CompanyServiceName%,0x200               ; SPSVCINST_STOPSERVICE
+
+[netfilter2.DriverFiles]
+    netfilter2.sys,,,0x00000040                              ; COPYFLG_OVERWRITE_OLDER_ONLY
+
+[netfilter2.Service]
+    DisplayName   = %CompanyServiceName%
+    Description   = %CompanyServiceDesc%
+    ServiceType   = 1                                     ; SERVICE_KERNEL_DRIVER
+    StartType     = 3                                     ; SERVICE_DEMAND_START
+    ErrorControl  = 1                                     ; SERVICE_ERROR_NORMAL
+    ServiceBinary = %12%\netfilter2.sys                      ; %WinDir%\System32\Drivers\netfilter2.sys
+
+[Strings]
+    ProviderString     = "netfiltersdk.com"
+    CompanyDisk        = "Disk"
+    CompanyServiceDesc = "NFSDK WFP driver"
+    CompanyServiceName = "netfilter2"

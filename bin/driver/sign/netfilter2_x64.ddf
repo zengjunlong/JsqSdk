@@ -1,0 +1,24 @@
+; *** Echo.ddf example ***
+;
+.OPTION EXPLICIT     ; Generate errors
+.Set CabinetFileCountThreshold=0
+.Set FolderFileCountThreshold=0
+.Set FolderSizeThreshold=0
+.Set MaxCabinetSize=0
+.Set MaxDiskFileCount=0
+.Set MaxDiskSize=0
+.Set CompressionType=MSZIP
+.Set Cabinet=on
+.Set Compress=on
+; Specify file name for new cab file
+.Set CabinetNameTemplate=netfilter2_x64.cab
+; Specify the subdirectory for the files.  
+; Your cab file should not have files at the root level, 
+; and each driver package must be in a separate subfolder.
+; Specify files to be included in cab file
+.Set DestinationDir=netfilter2_std_x64
+
+C:\windows10_cab\netfilter2.inf
+C:\windows10_cab\driver\std\x64\netfilter2.sys
+C:\windows10_cab\driver\std\x64\netfilter2.pdb
+

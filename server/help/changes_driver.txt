@@ -1,0 +1,15 @@
+build 1.0.0.9
+- Implemented a different method of filtering UDP datagrams using a pool of pre-allocated sockets.
+
+build 1.0.0.8
+- Implemented a fix for the case when UDP socket sends multiple datagrams to different host:port pairs.
+
+build 1.0.0.6
+- Fixed an issue in NAT for UDP sockets, communicating with several host:port pairs. 
+- The new flag NSF_USE_REAL_UDP_RECV_ADDRESS can be specified in NF_SRV_OPTIONS::flags to make the driver
+use real remote address for received UDP packets, when it differs from original destination.
+- Fixed a buffering issue in TCP filtering proxy with attached event handler.
+
+build 1.0.0.3
+- Fixed an issue with calculating checksums in driver.
+- Fixed the code for comparing IPv6 addresses.

@@ -1,0 +1,6 @@
+Differences between driver versions.
+================================================================
+
+- TDI driver works on Windows XP, Windows Vista and Windows 7.
+
+- WFP driver works on Windows 7 and higher. It is required on Windows 8 and higher to filter Metro applications and other processes in AppContainers, because Microsoft has disabled TDI interface for this kind of applications.

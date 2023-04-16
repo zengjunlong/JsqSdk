@@ -1,0 +1,17 @@
+build 1.0.1.4
+- TCP offloading is disabled in system registry during driver registration. Windows reboot is required to apply the changes.
+
+build 1.0.1.3
+- Implemented a different method of filtering UDP datagrams using a pool of pre-allocated sockets.
+
+build 1.0.1.2
+- Fixed bugs in UDP filtering code.
+
+build 1.0.1.0
+- UDP filtering uses a single socket port for each client port, to keep the original NAT type for devices using NAT traversal protocols.
+- Added SOCKS5 proxy support for UDP.
+- SOCKS5 redirection for TCP and UDP supports proxy authentication.
+- Added function nf_srv_getUDPRemoteAddress, allowing to get UDP packet destination address in udpCreated event.
+
+build 1.0.0.7
+- Fixed an issue with filtering simultaneous UDP packets from the same source address to different destination addresses. 
